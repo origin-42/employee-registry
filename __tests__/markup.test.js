@@ -1,0 +1,1 @@
+const markup = require("../dist/markup");

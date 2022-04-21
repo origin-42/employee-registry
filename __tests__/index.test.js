@@ -1,0 +1,1 @@
+const indexTests = require("../index");

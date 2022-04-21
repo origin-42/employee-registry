@@ -1,0 +1,1 @@
+const generateCard = require("../utils/cards");
