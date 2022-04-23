@@ -55,7 +55,7 @@ npm install inquirer
 
 ### How to Run Application - Click Image to Redirect
 
-[![EmployeeRegistry](./dist/images/Screenshot 2022-04-23 195543.jpg)](https://youtu.be/_0b44capTxA)
+[![EmployeeRegistry](./dist/images/Screenshot%202022-04-23%20195543.jpg)](https://youtu.be/_0b44capTxA)
 
 ## Credits
 
@@ -67,9 +67,9 @@ npm install inquirer
 
 ### Test Inquirer & Related Functions
 
-
 ```
 open terminal
+npm run test
 ```
 
 ## Questions
@@ -81,4 +81,4 @@ Direct any questions too;
 
 ## Extras
 
-![snippet](./dist/images/Screenshot 2022-04-23 220927.jpg)
+![snippet](./dist/images/Screenshot%202022-04-23%20220927.jpg)
