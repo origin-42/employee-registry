@@ -1,5 +1,5 @@
 const cards = require("./cards");
-const markup = require("../dist/markup");
+const markup = require("../src/markup");
 
 // Create a markdown string and return it, filled with requested data from user
 const generateMarkdown = (data) => {

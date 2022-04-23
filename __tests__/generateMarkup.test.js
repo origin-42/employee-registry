@@ -1,4 +1,4 @@
-const generateMarkdown = require("../utils/generateMarkdown");
+const generateMarkdown = require("../src/generateMarkdown");
 
 
 describe("Generate Markup", () => {

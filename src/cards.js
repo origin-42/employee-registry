@@ -1,4 +1,4 @@
-let generateFace = require("../dist/generateFace");
+let generateFace = require("../src/generateFace");
 
 // generate a card for the markup for each emplyee selected
 const generateCard = (id, name, email, association, role) => {

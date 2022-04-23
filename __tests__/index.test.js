@@ -1,6 +1,6 @@
 const indexTests = require("../index");
 const fs = require("fs");
-const fn = require("../utils/generateMarkdown");
+const fn = require("../src/generateMarkdown");
 const inquirer = require("../node_modules/inquirer/lib/inquirer");
 
 jest.mock("fs");

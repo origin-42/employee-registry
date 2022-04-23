@@ -3,7 +3,7 @@ const inquirer = require("./node_modules/inquirer/lib/inquirer");
 const Manager = require("./lib/managerClass");
 const Engineer = require("./lib/engineerClass");
 const Intern = require("./lib/internClass");
-const fn = require("./utils/generateMarkdown");
+const fn = require("./src/generateMarkdown");
 
 // Create a new object with inquirer format
 class PromptObj {

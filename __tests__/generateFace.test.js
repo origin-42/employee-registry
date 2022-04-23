@@ -1,4 +1,4 @@
-const generateFace = require("../dist/generateFace");
+const generateFace = require("../src/generateFace");
 
 describe("Generate Face", () => {
 

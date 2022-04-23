@@ -1,4 +1,4 @@
-const generateCard = require("../utils/cards");
+const generateCard = require("../src/cards");
 
 describe("Card Generator", () => {
 

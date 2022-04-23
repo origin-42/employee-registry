@@ -1,4 +1,4 @@
-const markup = require("../dist/markup");
+const markup = require("../src/markup");
 
 describe("markup", () => {
 
