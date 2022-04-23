@@ -8,7 +8,7 @@ const generateCard = (id, name, email, association, role) => {
     
 
     let html = [`<div class="card" data-role="${role.toLowerCase()}" data-show="true">
-                    <img src="./dist/images/faces/${generateFace()}" class="card-img-top" alt="${name}">
+                    <img src="./images/faces/${generateFace()}" class="card-img-top" alt="${name}">
                     <div class="card-body">
                         <h5 class="card-title">Name: ${firstName} ${lastName}</h5>
                         <h4 class="card-title">Role: ${role}</h4>\n`];
