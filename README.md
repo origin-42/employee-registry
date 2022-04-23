@@ -7,7 +7,7 @@
 
 <div align="center">
 
-[![License: MIT](https://img.shields.io/github/license/adonisjs/adonis-framework?style=for-the-badge)](https://opensource.org/licenses/MIT) [![name](link)](Node.js) 
+[![License: MIT](https://img.shields.io/github/license/adonisjs/adonis-framework?style=for-the-badge)](https://opensource.org/licenses/MIT) [![Node.js](https://badges.aleen42.com/src/node.svg)](Node.js) 
 
 </div>
 
@@ -81,6 +81,4 @@ Direct any questions too;
 
 ## Extras
 
-[location](link)
-
-![snippet](link)
+![snippet](./dist/images/Screenshot 2022-04-23 220927.jpg)
