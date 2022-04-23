@@ -31,15 +31,11 @@ const handleExceptions = (input, type) => {
         if (!input.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)) {
             console.log(redText, "This doesn't seem to match an email format.");
             return false;
-        }  else {
-            return true;
         };
     } else if (type == "number") {
         if (!input.match(/^[0-9]*$/)) {
             console.log(redText, "Employee ID's are integers only.");
             return false;
-        }  else {
-            return true;
         };
     }  
     
