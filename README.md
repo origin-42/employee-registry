@@ -92,4 +92,4 @@ Direct any questions too;
 
 Click image to check output from running this application.
 
-[![snippet](./dist/images/Screenshot%202022-04-23%20220927.jpg)](./dist/images/employeeRegistry.html)
+[![snippet](./dist/images/Screenshot%202022-04-23%20220927.jpg)](./dist/employeeRegistry.html)
