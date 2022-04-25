@@ -12,13 +12,7 @@
 </div>
 
 
-### Motivation
-
-This was developed to keep track of emplyees in a business to improve communication across the company and consistency in the team.
-
-### Information
-
-This application served as a testing ground for Test-Driven-Development. 
+This was developed to keep track of emplyees in a business to improve communication across the company and consistency in the team. This application served as a testing ground for Test-Driven-Development. 
 
 ## Requirements
 
@@ -32,6 +26,10 @@ To be able to run this application, Node.js will need to be installed locally, w
 
 - Provide menu options for adding and removing employees from rendered web page.
 
+### Additional Changes
+
+- Add drag and drop functionality for existing profiles. Possibly with JQuery UI.
+
 ## Table of Contents
 
 * [Installation](#installation)
@@ -43,15 +41,26 @@ To be able to run this application, Node.js will need to be installed locally, w
 ## Installation
 
 ```
-git clone {path}
-Navigate to the directory
-npm init -y
-npm install jest
-npm install inquirer
+Copy github URL path
+CLONE;
+git clone {url} (open inside text editor)
+open in text editor
 ```
 
 ## How to Use
 
+Download application from Github and install dependancies, Node.js, Inquirer, and Jest. The version of Node.js used at time of creation - 16.14.2, Inquirer 8.2.2, and Jest 27.5.1.
+From the console, enter;
+```
+either,
+npm install jest
+npm install inquirer
+or,
+npm i (inside main directory)
+
+npm start - will initiate this application
+```
+These commands will install the required dependencies.
 
 ### How to Run Application - Click Image to Redirect
 
@@ -81,4 +90,6 @@ Direct any questions too;
 
 ## Extras
 
-![snippet](./dist/images/Screenshot%202022-04-23%20220927.jpg)
+Click image to check output from running this application.
+
+[![snippet](./dist/images/Screenshot%202022-04-23%20220927.jpg)](./dist/images/employeeRegistry.html)
