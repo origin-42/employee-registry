@@ -44,10 +44,7 @@ const handleExceptions = (input, type) => {
         return false;
     } else if (input) {
         return true;
-    } else {
-        console.log(redText, "Something went wrong");
-        return false;
-    };
+    } 
 };
 
 //  Construct Data from classes

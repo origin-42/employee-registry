@@ -1,7 +1,7 @@
 const generateMarkdown = require("../src/generateMarkdown");
 
 
-describe("Generate Markup", () => {
+describe("Generate Markdown", () => {
 
     describe("call to function", () => {
 

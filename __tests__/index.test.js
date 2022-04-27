@@ -1,7 +1,7 @@
 const indexTests = require("../index");
 const fs = require("fs");
 const fn = require("../src/generateMarkdown");
-const inquirer = require("../node_modules/inquirer/lib/inquirer");
+const inquirer = require("inquirer");
 
 jest.mock("fs");
 
@@ -165,6 +165,13 @@ describe("Index File", () => {
                 let engineerInput = engineer[3].name;
                 let internInput = intern[3].name;
 
+                manager[3].validate = jest.fn()
+                engineer[3].validate = jest.fn()
+                intern[3].validate = jest.fn()
+                manager[3].validate()
+                engineer[3].validate()
+                intern[3].validate()
+
                 //Assert
                 expect(id).toEqual("id");
                 expect(message).toEqual("What is the manager ID? ");
@@ -175,10 +182,34 @@ describe("Index File", () => {
                 expect(managerInput).toBe("officeNumber");
                 expect(engineerInput).toEqual("username");
                 expect(internInput).toEqual("schoolName");
+
+                expect(manager[3].validate).toBeCalled();
+                expect(engineer[3].validate).toBeCalled();
+                expect(intern[3].validate).toBeCalled();
     
+            })
+
+            it('should be an arr of PromptObj', () => {
+                const arr1 = indexTests.newEmployee("manager");
+                expect(arr1.length).toBe(4);
+                expect(arr1[0]).toBeInstanceOf(indexTests.PromptObj);
+
+                let truthy = arr1[0].validate("123");
+                expect(truthy).toEqual(true);
+
+                truthy = arr1[1].validate("some name");
+                expect(truthy).toEqual(true);
+
+                truthy = arr1[2].validate("test@test.com");
+                expect(truthy).toEqual(true);
+
+                truthy = arr1[3].validate("123");
+                expect(truthy).toEqual(true);
             })
     
         })
+
+        
 
         describe("The requestEmployee constructor", () => {
     
@@ -282,38 +313,83 @@ describe("Index File", () => {
 
         })
 
+        it("Should push information to an empty array", () => {
+
+            // Arrange
+            let mockPush = jest.spyOn(indexTests.employeeData, "push");
+            mockPush.mockImplementation(() => { });
+
+            // Act
+            indexTests.employeeData.push("Hello World!");
+
+            expect(mockPush).toHaveBeenCalledWith("Hello World!");
+
+        })
+
+        it("Should call requestManager, push new data to employeeData to be sent after user finishes building their team", () => {
+
+            // Arrange
+            const managerData = {
+                id: 1, name: 'something', email: 'abc', officeNumber: 'asdas'
+            }
+            const mockFalse = jest.spyOn(inquirer, "prompt");
+            mockFalse
+                .mockImplementationOnce(() => Promise.resolve(managerData))
+                .mockImplementation(() => Promise.resolve({}));
+
+            // Act
+            indexTests.requestManager();
+
+            expect(mockFalse).toBeCalled();
+            expect(mockFalse).toBeCalledWith(expect.any(Array));
+
+            // restore Values
+            mockFalse.mockRestore();
+
+        })
+
+        test('should return an array of strings and a fn with type manager', () => {
+            
+            // Arrange
+            const employeeData = {
+                engineer: {
+                    promptNewEmployee: "Add a new Engineer"
+                },
+            }
+            const mockInquirer = jest.spyOn(inquirer, "prompt");
+
+            // Act
+            mockInquirer.mockImplementationOnce(() => Promise.resolve(employeeData.engineer));
+
+            indexTests.promptNewEmployee()
+            
+            // Assert
+            expect(mockInquirer).toBeCalled();
+
+
+            mockInquirer.mockRestore();
+        })
+
     })
 
     describe("construct a new file function", () => {
 
         it("Should receive a string and create a file with input based off the string", () => {
 
-            // Mock function call clone
-            const constructFile = (data) => {
+            const data = "testing";
+            const fnSpy = jest.spyOn(fn, "generateMarkdown")
+            fnSpy.mockImplementation(() => {})
 
-                let htmlFile = fn.generateMarkdown(data);
-                fs.writeFile("./dist/employeeRegistry.html", htmlFile)
+            const fsSpy = jest.spyOn(fs, "writeFile");
+            fsSpy.mockImplementation(() => {})
             
-            };
+            indexTests.constructFile(data)
 
-            // Arrange
-            let inputHTML = "Testing";
-            let mock = jest.spyOn(fn, "generateMarkdown");
+            expect(fnSpy).toBeCalled();
+            expect(fsSpy).toBeCalledWith(expect.any(String), undefined, expect.any(Function));
 
-            // Act
-            mock.mockImplementation(() => { 
-                return inputHTML;
-            });
-
-            constructFile(inputHTML);
-
-            // Asset
-            expect(inputHTML).toEqual("Testing");
-            expect(mock).toHaveBeenCalledWith(inputHTML);
-            expect(fs.writeFile).toHaveBeenCalledWith("./dist/employeeRegistry.html", inputHTML);
-
-            // restore
-            mock.mockRestore();
+            fnSpy.mockRestore();
+            fsSpy.mockRestore();
         })
 
     })
@@ -327,12 +403,12 @@ describe("Index File", () => {
                 inquirer.prompt();
             };
 
-            const mock = jest.spyOn(inquirer, "prompt");
-            mock.mockImplementation(() => { });
-
-            let starting = begin();
+            const mock = jest.spyOn(inquirer, "prompt")
+            mock.mockImplementation(() => { })
+            begin()
 
             expect(mock).toBeCalled();
+
 
             mock.mockRestore();
 
